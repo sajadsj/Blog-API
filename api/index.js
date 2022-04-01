@@ -35,17 +35,15 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 });
 
 
-
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/posts", postsRoute);
 app.use("/api/categories", categoryRoute);
-
-app.listen(process.env.PORT, () => {
-    console.log("Backend is running...");
-});
-
 //Test home
 app.use("/", (req, res) => {
     console.log("hey this is main url");
+});
+
+app.listen(process.env.PORT || 5000, () => {
+    console.log("Backend is running...");
 });
